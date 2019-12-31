@@ -1,4 +1,9 @@
+REALIZAÇÃO DE TODA A FORMAÇÃO PHP NA PLATAFORMA DE CURSOS ALURA
+
+
 CURSO DE MANUTENÇÃO DE FUNDAMENTOS EM:
 
-Orientação a Objetos com PHP: Classes, métodos e atributos - PARTE 1
+Orientação a Objetos com PHP: Classes, métodos e atributos - PARTE 1 - FINALIZADO;
+
+INICIANDO: PARTE 2
 
