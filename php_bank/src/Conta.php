@@ -77,5 +77,10 @@ class Conta
         return $this->titular->recuperaCPF();
     }
 
+    //Recupera o endereço do titular
+    public function recuperaEndTitular(): string
+    {
+        return $this->titular->recuperaEnd();
+    }
 
 }
