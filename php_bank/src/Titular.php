@@ -4,9 +4,9 @@ class Titular
 {
     private CPF $cpf;
     private string $nome;
-    private string $endereco;
+    private Endereco $endereco;
 
-    public function __construct(CPF $cpf, string $nome, string $endereco)
+    public function __construct(CPF $cpf, string $nome, Endereco $endereco)
     {
         $this->cpf = $cpf;
         $this->validaNomeTitular($nome);
@@ -36,7 +36,7 @@ class Titular
     }
 
     //Retorna o endereço do usuário
-    public function recuperaEnd(): string
+    public function recuperaEnd(): Endereco
     {
         return $this->endereco;
     }
