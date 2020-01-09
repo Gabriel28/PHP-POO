@@ -18,7 +18,7 @@ echo $conta1->recuperaNomeTitular() . PHP_EOL;
 echo $conta1->recuperaCpfTitular() . PHP_EOL;
 echo $conta1->informaSaldo() . PHP_EOL;
 
-$conta2 = new Titular(new CPF('698.549.548-10'), 'conta2', $endereco);
+$conta2 = new Titular(new CPF('698.549.548-10'), 'Naruto', $endereco);
 $segundaConta = new Conta($conta2);
 var_dump($segundaConta);
 
