@@ -2,12 +2,13 @@
 
 namespace Alura\Banco\Modelo\Conta;
 
-class Conta
+abstract class Conta
 {
     //Definir dados da conta
     private Titular $titular;
-    private float $saldo;
+    protected float $saldo;
     private static $numContas = 0;
+
 
     //Defini os dados conta do cliente 
     public function __construct(Titular $titular)
@@ -15,7 +16,7 @@ class Conta
         echo "Criando uma nova conta..." . PHP_EOL;
         $this->titular = $titular;
         $this->saldo = 0;
-
+        
         self::$numContas++; 
     }
 
@@ -27,11 +28,14 @@ class Conta
     //Saca valor da conta que está acessando o método.
     public function sacar(float $valorASacar)
     {
+        $tarifa = $valorASacar * $this->percentunalTarifa();
+        $valorSaque = $valorASacar + $tarifa;
+        
         if($valorASacar > $this->saldo){
             echo "Saldo indisponível";
             return;
         }
-            $this->saldo -= $valorASacar;
+            $this->saldo -= $valorSaque;
     }
 
     //Realiza um depósito de uma valor para a conta que está acessando o método. 
@@ -42,17 +46,6 @@ class Conta
             return;
         } 
             $this->saldo += $depositarValor;
-    }
-
-    //Realiza uma transferência entre contas passando o valor e conta como parâmetro. 
-    public function transfere(float $valorATransfeir, Conta $contaDestino): void
-    {
-        if($valorATransfeir > $this->saldo){
-            echo "Saldo indisponível";
-            return;
-        }
-            $this->sacar($valorATransfeir);
-            $contaDestino->depositar($valorATransfeir);
     }
 
     //Recupera o saldo e apresenta na tela.
@@ -78,5 +71,7 @@ class Conta
     {
         return $this->titular->recuperaCPF();
     }
+
+    abstract public function percentunalTarifa(): float;
 
 }
