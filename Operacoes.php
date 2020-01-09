@@ -1,23 +1,28 @@
 <?php
 
-require_once 'php_bank/src/Conta.php';
-require_once 'php_bank/src/Endereco.php';
-require_once 'php_bank/src/Titular.php';
-require_once 'php_bank/src/CPF.php';
+require_once 'autoload.php';
 
-$endereco = new Endereco ('São Paulo', 'Suzano', 'Rua forte', '71');
-$endereco2 = new Endereco ('São Carlos', 'Centro', 'Rua presidente', '174');
-$debConta = new Conta(new Titular(new CPF("132.987.126-69"), "TAYSON", $endereco2));
-$gabConta = new Conta(new Titular(new CPF("123.123.433-98"), "SEIYA", $endereco));
+use Alura\Banco\Modelo\Conta\Titular;
+use Alura\Banco\Modelo\Endereco;
+use Alura\Banco\Modelo\CPF;
+use Alura\Banco\Modelo\Funcionario;
+use Alura\Banco\Modelo\Conta\Conta;
 
-$gabConta -> depositar(3000);
+$endereco = new Endereco('São Paulo', 'São paulo', 'R. Aldeia da Folha', '1123');
+$Tsubasa = new Titular(new CPF('123.456.789-10'), 'Oliver Atom', $endereco);
+$conta1 = new Conta($Tsubasa);
+$conta1->depositar(5500);
+$conta1->sacar(350);
 
-echo $gabConta-> recuperaNomeTitular() . PHP_EOL;
-echo $gabConta-> recuperaCpfTitular() . PHP_EOL;
+echo $conta1->recuperaNomeTitular() . PHP_EOL;
+echo $conta1->recuperaCpfTitular() . PHP_EOL;
+echo $conta1->informaSaldo() . PHP_EOL;
 
+$conta2 = new Titular(new CPF('698.549.548-10'), 'conta2', $endereco);
+$segundaConta = new Conta($conta2);
+var_dump($segundaConta);
 
-$gabConta -> transfere(2000, $debConta);
-
-echo $debConta-> informaSaldo() . PHP_EOL;
-
-var_dump($debConta);
+$novoEndereco = new Endereco('São Carlos', 'Centro', 'R. Centro', '1D32');
+$conta4 = new Conta(new Titular(new CPF('123.750.789-01'), 'Seiya', $novoEndereco));
+unset($segundaConta);
+echo Conta::infoNumContas();
