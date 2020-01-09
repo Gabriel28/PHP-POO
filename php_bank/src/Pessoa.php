@@ -3,7 +3,7 @@
 class Pessoa
 {
     protected string $nome;
-    protected CPF $cpf;
+    private CPF $cpf;
 
     public function __construct(string $nome, CPF $cpf)
     {
