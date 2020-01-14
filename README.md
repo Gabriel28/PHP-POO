@@ -7,5 +7,5 @@ Orientação a Objetos com PHP: Classes, métodos e atributos - PARTE 1 - FINALI
 
 INICIANDO: PARTE 2
 
-Avançando com Orientação a Objetos com PHP: Herança, Polimorfismo e Interfaces; Em andamento
+Avançando com Orientação a Objetos com PHP: Herança, Polimorfismo e Interfaces - FINALIZADO
 
